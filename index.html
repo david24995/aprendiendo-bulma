@@ -14,26 +14,58 @@
 <body>
     <section class="hero is-primary is-medium">
         <div class="hero-head">
-            <header class="navbar">
+            <header class="navbar " role="navigation">
+
                 <div class="container">
-                    <div class="navbar-start">
-                        <div class="navbar-brand">
-                            <a href="#" class="nav-item">
-                                <p class="logo">Mi primera página</p>
-                            </a>
-                        </div>
+                    <div class="navbar-brand">
+                        <a href="#" class="navbar-item">
+                            <p class="logo">Mi primera página</p>
+                        </a>
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menu2">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
                     </div>
-                    <div class="navbar-end">
-                        <div class="navbar-menu">
-                            <a href="https://github.com/david24995" target="_blank" class="nav-item">Github</a>
-                            <a href="https://github.com/david24995" target="_blank" class="nav-item">Twitter</a>
-                            <a href="https://github.com/david24995" target="_blank" class="nav-item">Instagram</a>
+                    <div class="navbar-menu" id="menu2">
+                        <div class="navbar-end">
+                            <a href="https://github.com/david24995" target="_blank" class="navbar-item">Github</a>
+                            <a href="https://github.com/david24995" target="_blank" class="navbar-item">Twitter</a>
+                            <a href="https://github.com/david24995" target="_blank" class="navbar-item">Instagram</a>
                         </div>
                     </div>
                 </div>
             </header>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+
+        });
+    </script>
 </body>
 
 </html>
